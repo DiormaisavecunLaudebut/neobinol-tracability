@@ -1,0 +1,12 @@
+<%= render 'info_pop_up' %>
+
+<%= render 'navbar' %>
+
+<div class="container mt-3">
+  <div id="accordion">
+    <% 6.times do |i| %>
+        <%=  render 'info-card', i: i %>
+    <% end %>
+  </div>
+</div>
+

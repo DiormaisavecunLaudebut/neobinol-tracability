@@ -1,4 +1,15 @@
 // Import your components CSS files here.
+@font-face {
+   font-family: 'coolvetica';
+   src: url('../../fonts/coolvetica.ttf')
+};
+
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "tracability-info";
+@import "step-card";
+
+.column {flex-direction: column;}
+.position-relative {position: relative;}
+body {background: white;}
