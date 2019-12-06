@@ -2,7 +2,7 @@
   <div class="card-header" id="heading<%= i %>">
     <h5 class="mb-0 position-relative">
       <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="<%= i == 0 ? 'true' : 'false' %>" aria-controls="collapse<%= i %>">
-        <%= @text[i][:fr][:title] %>
+        <%= lang == "fr" ? @text[i][:fr][:title] : @text[i][:en][:title] %>
       </button>
       <div class="arrow arrow--down <%= 'arrow-swipped' if i == 0 %>"></div>
     </h5>
@@ -10,8 +10,9 @@
 
   <div id="collapse<%= i %>" class="collapse <%= "show" if i == 0 %>" aria-labelledby="heading<%= i %>" data-parent="#accordion">
     <div class="card-body">
-      <%= @text[i][:fr][:body] %>
+      <%= lang == "fr" ? @text[i][:fr][:body] : @text[i][:en][:body] %>
       <%= cl_image_tag "neobinol-step#{i}", width: 300, height: 200, class: "mt-3" %>
+      <p style="margin: 0; font-size: 10px;"><%= lang == "fr" ? @text[i][:fr][:img] : @text[i][:en][:img] %></p>
     </div>
   </div>
 

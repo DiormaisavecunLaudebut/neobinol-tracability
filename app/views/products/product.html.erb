@@ -1,11 +1,12 @@
-<%= render 'info_pop_up' %>
+<%= render 'info_pop_up', lang: @lang %>
 
-<%= render 'navbar' %>
+<%= render 'navbar', lang: @lang %>
 
+<%= render 'product_card', product: @product %>
 <div class="container mt-3">
   <div id="accordion">
     <% 6.times do |i| %>
-        <%=  render 'info-card', i: i %>
+        <%=  render 'info-card', i: i, lang: @lang %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,15 @@
+<div class="lang">
+  <% if lang == "en" %>
+    <form class="" accept-charset="UTF-8" action="/product" method="get">
+      <div class="form-group">
+        <input style="border: none; width: 43px; height: 30px" name="lang[fr]" type="image" src="<%= cl_image_path 'fr_flag' %>" class="form-control" id="lan">
+      </div>
+    </form>
+  <% else %>
+    <form class="" accept-charset="UTF-8" action="/product" method="get">
+    <div class="form-group">
+      <input style="border: none; width: 43px; height: 30px" name="lang[en]" type="image" src="<%= cl_image_path 'en_flag' %>" class="form-control" id="lan">
+    </div>
+  </form>
+  <% end %>
+</div>

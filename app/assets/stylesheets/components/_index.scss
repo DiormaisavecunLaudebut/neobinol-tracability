@@ -9,7 +9,14 @@
 @import "navbar";
 @import "tracability-info";
 @import "step-card";
+@import "footer";
+@import "product-card";
 
 .column {flex-direction: column;}
 .position-relative {position: relative;}
 body {background: white;}
+
+h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  }

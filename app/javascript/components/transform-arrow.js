@@ -1,9 +1,15 @@
 const cards = document.querySelectorAll('.card-header');
+const links = document.querySelectorAll('.btn-link');
+
+const resetArrowStyle = (link) => {
+  if (link.classList.value.match('collapsed')) {
+    link.nextElementSibling.classList.remove('arrow-swipped')
+  }
+}
 
 const swipeArrow = (e) => {
-  const arrow = e.currentTarget.querySelector('.arrow');
-  // console.log(arrow)
-  arrow.classList.toggle('arrow-swipped');
+  links.forEach(link => resetArrowStyle(link));
+  e.currentTarget.querySelector('.arrow').classList.add('arrow-swipped')
 }
 
 const transformArrow = () => {
