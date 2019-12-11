@@ -20,11 +20,11 @@ class ProductsController < ApplicationController
   end
 
   def find_product
-    if request.referer&.match?(/[A-E]=/)
-      code =  request.referer.match(/[A-E]=.*/)[0][2..-1]
-      @product = Product.where(code: code).take
-    elsif params["product"]
+    if params["product"]
       @product = Product.where(code: params["product"]["code"]).take
+    elsif request.referer&.match?(/[A-E]=/)
+      code = request.referer.match(/[A-E]=.*/)[0][2..-1]
+      @product = Product.where(code: code).take
     end
   end
 
