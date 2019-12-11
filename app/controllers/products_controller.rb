@@ -3,14 +3,30 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def product
-    @lang = "en"
-    if params["lang"]
-      @lang = params["lang"]["en"] ? "en" : "fr"
-    end
-    @product = Product.where(code: params["product"]["code"].to_i) if params["product"]
+    find_lang
+    find_product
   end
 
   private
+
+  def find_lang
+    if params["lang"]
+      @lang = params["lang"]["en"] ? "en" : "fr"
+    elsif request.referer.match?(/fr|en/)
+      @lang = request.referer.match?(/fr/) ? "fr" : "en"
+    else
+      @lang = "en"
+    end
+  end
+
+  def find_product
+    if request.referer.match?(/[A-E]=/)
+      code =  request.referer.match(/[A-E]=.*/)[0][2..-1]
+      @product = Product.where(code: code).take
+    elsif params["product"]
+      @product = Product.where(code: params["product"]["code"]).take
+    end
+  end
 
   def set_text
     @text = [

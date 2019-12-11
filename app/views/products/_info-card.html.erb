@@ -10,7 +10,7 @@
 
   <div id="collapse<%= i %>" class="collapse <%= "show" if i == 0 %>" aria-labelledby="heading<%= i %>" data-parent="#accordion">
     <div class="card-body">
-      <%= lang == "fr" ? @text[i][:fr][:body] : @text[i][:en][:body] %>
+      <p><%= lang == "fr" ? @text[i][:fr][:body] : @text[i][:en][:body] %></p>
       <%= cl_image_tag "neobinol-step#{i}", width: 300, height: 200, class: "mt-3" %>
       <p style="margin: 0; font-size: 10px;"><%= lang == "fr" ? @text[i][:fr][:img] : @text[i][:en][:img] %></p>
     </div>
