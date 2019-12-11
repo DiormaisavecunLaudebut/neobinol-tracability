@@ -30,5 +30,7 @@
 }
 
 .fa-search {
-  -webkit-appearance: meter;
+  -webkit-appearance: none !important;
+  border: none !important;
+  background: white !important;
 }
