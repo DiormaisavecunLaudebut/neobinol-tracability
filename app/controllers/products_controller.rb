@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def find_lang
     if params["lang"]
       @lang = params["lang"]["en"] ? "en" : "fr"
-    elsif request.referer.match?(/fr|en/)
+    elsif request.referer&.match?(/fr|en/)
       @lang = request.referer.match?(/fr/) ? "fr" : "en"
     else
       @lang = "en"
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def find_product
-    if request.referer.match?(/[A-E]=/)
+    if request.referer&.match?(/[A-E]=/)
       code =  request.referer.match(/[A-E]=.*/)[0][2..-1]
       @product = Product.where(code: code).take
     elsif params["product"]
