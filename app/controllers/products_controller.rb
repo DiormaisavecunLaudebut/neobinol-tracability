@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
 
   def find_product
     if params["product"]
-      @product = Product.where(code: params["product"]["code"]).take
+      @product = Product.where(code: params["product"]["code"].strip.upcase).take
     elsif request.referer&.match?(/[A-E]=/)
       code = request.referer.match(/[A-E]=.*/)[0][2..-1]
       @product = Product.where(code: code).take
