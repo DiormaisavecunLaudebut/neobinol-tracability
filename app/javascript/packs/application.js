@@ -3,12 +3,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { closeInfo } from "../components/close-info"
 import { openCard } from "../components/open-step-card"
 import { initMapbox } from '../plugins/init_mapbox';
-import { alignProductCard } from '../components/align-product-card'
+// import { alignProductCard } from '../components/align-product-card'
 
 closeInfo();
 openCard();
 initMapbox();
-alignProductCard();
+// alignProductCard();
 
 const targetNodes = document.querySelectorAll('.btn-link');
 const config = { attributes: true, childList: true };

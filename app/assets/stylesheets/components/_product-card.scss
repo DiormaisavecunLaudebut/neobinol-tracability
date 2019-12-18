@@ -1,7 +1,7 @@
 @media (min-width: 520px) {
   #accordion {
     width: 60vw;
-    margin-left: 24px;
+    margin-left: 10rem;
   }
   .product-card-mobile {
     display:none !important;
@@ -34,7 +34,9 @@
   display: flex;
   background: white;
   position: absolute;
-  top: 500px;
+  top: 80px;
+  left: 10rem;
+  z-index: 10;
   padding: 20px;
   flex-direction: column;
   align-items: center;

@@ -2,7 +2,7 @@
   <div class="card-header" id="heading<%= i %>">
     <h5 class="mb-0 position-relative">
       <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="<%= i == 0 ? 'true' : 'false' %>" aria-controls="collapse<%= i %>">
-        <%= lang == "fr" ? @text[i][:fr][:title] : @text[i][:en][:title] %>
+        <%= i + 1 %> - <%= lang == "fr" ? @text[i][:fr][:title] : @text[i][:en][:title] %>
       </button>
       <div class="arrow arrow--down <%= 'arrow-swipped' if i == 0 %>"></div>
     </h5>
