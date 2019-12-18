@@ -2,8 +2,17 @@
 
 <%= render 'navbar', lang: @lang %>
 
+<div
+  id="map"
+  style="width: 100%;
+  height: 300px;"
+  data-markers="<%= @addresses.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
 <%= render 'product_card', product: @product if @product%>
-<div class="img-desktop"></div>
+<!-- <div class="img-desktop"></div> -->
+
 <div class="container mt-3 container-all-cards">
   <div id="accordion">
     <% 6.times do |i| %>

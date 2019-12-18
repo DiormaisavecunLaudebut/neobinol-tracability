@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_text
+  before_action :set_text, :set_addresses
   skip_before_action :authenticate_user!
 
   def product
@@ -17,6 +17,24 @@ class ProductsController < ApplicationController
     else
       @lang = "en"
     end
+  end
+
+  def set_addresses
+    find_lang
+    @addresses = [
+      { lat: 46.519653, lng: 6.632273,
+        infoWindow: render_to_string(partial: "info_window", locals: { txt: @text[0], lang: @lang }) },
+      { lat: 46.204391, lng: 6.143158,
+        infoWindow: render_to_string(partial: "info_window", locals: { txt: @text[1], lang: @lang }) },
+      { lat: 46.948002, lng: 7.448130,
+        infoWindow: render_to_string(partial: "info_window", locals: { txt: @text[2], lang: @lang }) },
+      { lat: 47.376888, lng: 8.541694,
+        infoWindow: render_to_string(partial: "info_window", locals: { txt: @text[3], lang: @lang }) },
+      { lat: 47.050167, lng: 8.309307,
+        infoWindow: render_to_string(partial: "info_window", locals: { txt: @text[4], lang: @lang }) },
+      { lat: 46.431320, lng: 6.910610,
+        infoWindow: render_to_string(partial: "info_window", locals: { txt: @text[5], lang: @lang }) }
+    ]
   end
 
   def find_product
